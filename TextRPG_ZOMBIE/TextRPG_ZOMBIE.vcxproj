@@ -20,9 +20,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="HalfZombie.h" />
+    <ClInclude Include="NormalZombie.h" />
+    <ClInclude Include="VariantZombie.h" />
+    <ClInclude Include="ZombieFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="HalfZombie.cpp" />
+    <ClCompile Include="NormalZombie.cpp" />
+    <ClCompile Include="test_main.cpp" />
+    <ClCompile Include="VariantZombie.cpp" />
+    <ClCompile Include="ZombieFactory.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
