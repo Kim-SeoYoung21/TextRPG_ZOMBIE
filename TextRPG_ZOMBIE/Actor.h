@@ -18,7 +18,7 @@ public:
 	Actor(string inputName, int inputAttackPower, int inputMaxHP);
 
 	int Attack();	
-	void onHit(int inputAttackPower);
+	virtual void onHit(int inputAttackPower);
 	bool isDead();
 	void printStatus();
 }; 

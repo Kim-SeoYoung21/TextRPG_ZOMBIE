@@ -57,12 +57,27 @@ void Character::levelUp()
     cout << "축하합니다! Lv. " << Level << "로 레벨 업했습니다!" << endl;
 }
 
+// 피격 오버라이딩
+void Character::onHit(int inputAttackPower) { 
+    Actor::onHit(inputAttackPower);
+    
+    if (Condition == "건강") {
+        cout << Name << "이(가) " << inputAttackPower << " 피해를 입었습니다. (" << HP << "/" << MaxHP << ")" << endl;
+        Infect(); // 감염 처리
+    }
+    else
+    {
+        cout << Name << "이(가) " << inputAttackPower << " 피해를 입었습니다. (" << HP << "/" << MaxHP << ")" << endl;
+        Actor::onHit(5);
+        cout << Name << "이(가) 감염되어 5의 데미지를 추가적으로 받았습니다. (" << HP << "/" << MaxHP << ")" << endl;
+    }
+}
 
 // 상태이상
 void Character::Infect()
 {
     int chance = rand() % 100;
-    if (chance < 20) // 20% 확률로 감염
+    if (chance < 10) // 20% 확률로 감염
     {
         Condition = "감염";
         cout << Name << "이(가) 감염되었습니다. 백신을 사용해 주세요." << endl;

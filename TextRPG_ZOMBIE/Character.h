@@ -28,12 +28,13 @@ public:
     // 상태 출력
     void printStatus();
 
-    void Infect();
+    // 피격 오버라이딩
+    void onHit(int inputAttackPower) override;
 
 private:
     // 레벨업 처리
     void levelUp();
 
     // 감염
-    //void Infect();
+    void Infect();
 };
