@@ -7,7 +7,7 @@ using namespace std;
 
 class Actor
 {
-private:
+protected:
 	string Name;//Name of Actor object
 	int AttackPower;//Attack power of Actor object
 	int HP;//Current health point of Actor object

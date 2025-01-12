@@ -26,7 +26,7 @@ int main() {
     player.printStatus();
 
     while (1) { // function test
-        cout << "1. 경험치 획득, 2. 아이템 획득 : ";
+        cout << "1. 경험치 획득, 2. 아이템 획득, 3. 상태이상 테스트(감염 20퍼): ";
         cin >> choice;
         if (choice == 1)
         {
@@ -36,6 +36,11 @@ int main() {
         else if (choice == 2)
         {
             player.addItem("테스트1");
+            player.printStatus();
+        }
+        else if (choice == 3)
+        {
+            player.Infect();
             player.printStatus();
         }
         else cout << "재입력하쇼";

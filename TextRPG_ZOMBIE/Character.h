@@ -9,6 +9,8 @@ private:
     int Exp;
     int MaxExp;
     int Level;
+    int Money;
+    string Condition;
 
 public:
     // 기본 생성자
@@ -26,7 +28,12 @@ public:
     // 상태 출력
     void printStatus();
 
+    void Infect();
+
 private:
     // 레벨업 처리
     void levelUp();
+
+    // 감염
+    //void Infect();
 };
