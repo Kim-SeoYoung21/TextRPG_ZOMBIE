@@ -40,6 +40,29 @@ void Character::gainExp(int amount)
     }
 }
 
+// Gain money
+void Character::gainMoney(int amount)
+{
+    Money += amount;
+    cout << "돈 획득: " << amount << " (보유 돈 : " << Money << ")" << endl;
+}
+
+// Pay money
+bool Character::payMoney(int price)
+{
+    if (price > Money)
+    {
+        cout << "보유 골드가 부족합니다!";
+        return 0;
+    }
+    else
+    {
+        Money -= price;
+        cout << price << "원을 지불 했습니다. 잔액 (" << Money << ")";
+        return 1;
+    }    
+}
+
 // PrintStatus
 void Character::printStatus()
 {

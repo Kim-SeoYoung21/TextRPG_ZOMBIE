@@ -26,7 +26,7 @@ int main() {
     player.printStatus();
 
     while (1) { // function test
-        cout << "1. 경험치 획득, 2. 아이템 획득, 3. 피격 테스트(감염 10퍼), 4. 골드 추가: ";
+        cout << "1. 경험치 획득, 2. 아이템 획득, 3. 피격 테스트(감염 10퍼), 4. 골드 추가(+500), 5. 골드(-500): ";
         cin >> choice;
         if (choice == 1)
         {
@@ -54,6 +54,12 @@ int main() {
         }
         else if (choice == 4)
         {
+            player.gainMoney(500);
+            player.printStatus();
+        }
+        else if (choice == 5)
+        {
+            player.payMoney(500);
             player.printStatus();
         }
         else cout << "재입력하쇼";

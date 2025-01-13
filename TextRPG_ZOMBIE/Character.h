@@ -26,6 +26,12 @@ public:
     // 경험치 획득
     void gainExp(int amount);
 
+    // 돈 획득
+    void gainMoney(int amount);
+
+    // 돈 소모
+    bool payMoney(int amount);
+
     // 상태 출력
     void printStatus();
 
