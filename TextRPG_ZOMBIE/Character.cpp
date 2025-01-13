@@ -107,6 +107,12 @@ void Character::onHit(int inputAttackPower) {
         Actor::onHit(dot);
         cout << Name << "이(가) 감염되어 " << dot << " 데미지를 추가적으로 받았습니다. (" << HP << " / " << MaxHP << ")" << endl;
     }
+
+    if (isDead())
+    {
+        cout << Name << "이(가) 피해를 버티지 못하고 쓰러져 버렸습니다. 게임을 종료합니다.";
+        exit(0);
+    }
 }
 
 // 상태이상
