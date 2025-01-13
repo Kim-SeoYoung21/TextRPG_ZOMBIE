@@ -11,7 +11,7 @@ public:
 
     std::string GetName();
     int GetMaxHP();
-    int GetAttackPower();
+    int Attack();
     void onHit(int inputAttackPower) override;
     void printStatus();
 };

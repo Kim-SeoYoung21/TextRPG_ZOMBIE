@@ -1,17 +1,13 @@
 #include "NormalZombie.h"
-#include <random>
+#include "RandomUtil.h"
 
 using namespace std;
 
 NormalZombie::NormalZombie(int playerLevel) : Actor("", 0, 0)
 {
-    static default_random_engine generate(random_device{}());
-    uniform_int_distribution<int> randomHP(playerLevel * 20, playerLevel * 30);
-    uniform_int_distribution<int> randomAttackPower(playerLevel * 5, playerLevel * 10);
-
     Name = "NormalZombie";
-    MaxHP = randomHP(generate);
-    AttackPower = randomAttackPower(generate);
+    MaxHP = RandomUtil::GetRandomInt(playerLevel * 20, playerLevel * 30);;
+    AttackPower = RandomUtil::GetRandomInt(playerLevel * 5, playerLevel * 10);
     HP = MaxHP;
 }
 
@@ -25,7 +21,7 @@ int NormalZombie::GetMaxHP()
     return MaxHP;
 }
 
-int NormalZombie::GetAttackPower()
+int NormalZombie::Attack()
 {
     return AttackPower;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
-#include "ZombieFactory.h"  // ZombieFactory와 좀비 클래스들이 정의된 헤더 파일 포함
+#include "ZombieFactory.h"
 #include "Actor.h"
 
 using namespace std;

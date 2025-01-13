@@ -1,19 +1,14 @@
 #include "BossZombie.h"
-#include <random>
+#include "RandomUtil.h"
 
 using namespace std;
 
 BossZombie::BossZombie(int playerLevel) : Actor("", 0, 0)
 {
-	static default_random_engine generate(random_device{}());
-	uniform_int_distribution<int> randomHP(playerLevel * 20 * 1.5, playerLevel * 30 * 1.5);
-	uniform_int_distribution<int> randomAttackPower(playerLevel * 5 * 1.5, playerLevel * 10 * 1.5);
-
 	Name = "BossZombie";
-	MaxHP = randomHP(generate);
-	AttackPower = randomAttackPower(generate);
+	MaxHP = RandomUtil::GetRandomInt(playerLevel * 20 * 1.5, playerLevel * 30 * 1.5);
+	AttackPower = RandomUtil::GetRandomInt(playerLevel * 5 * 1.5, playerLevel * 10 * 1.5);
 	HP = MaxHP;
-
 }
 
 string BossZombie::GetName()
@@ -26,7 +21,7 @@ int BossZombie::GetMaxHP()
 	return MaxHP;
 }
 
-int BossZombie::GetAttackPower()
+int BossZombie::Attack()
 {
 	return AttackPower;
 }

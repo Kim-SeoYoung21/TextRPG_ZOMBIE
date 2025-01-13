@@ -7,11 +7,11 @@
 class VariantZombie : public Actor
 {
 public:
-    VariantZombie(int playerLevel);  // »ý¼ºÀÚ
+    VariantZombie(int playerLevel);
 
     string GetName();
     int GetMaxHP();
-    int GetAttackPower();
+    int Attack();
     void onHit(int inputAttackPower) override;
     void printStatus();
 };
