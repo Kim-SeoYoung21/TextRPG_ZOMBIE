@@ -2,6 +2,7 @@
 #include "NormalZombie.h"
 #include "VariantZombie.h"
 #include "HalfZombie.h"
+#include "BossZombie.h"
 #include <iostream>
 #include <random>
 
@@ -18,24 +19,21 @@ unique_ptr<Actor> ZombieFactory::CreateZombie(int playerLevel)
     uniform_int_distribution<int> RandomCreate(1, 3);
     int randomValue = RandomCreate(generate);
 
-    //// Player 레벨이 10 이상일 때
-    //if (PlayerLevel >= 10)
-    //{
-    //    // TODO : 보스 좀비 구현
-    //    BossZombie(PlayerLevel);
-    //    return;
-    //}
+    // Player 레벨이 10 이상일 때
+    if (PlayerLevel >= 10)
+        return make_unique<BossZombie>(playerLevel);
 
     // 랜덤으로 나온 값을 바탕으로 좀비 생성
+    // TODO : main에서 랜덤 값 정의하고 좀비 타입만 넣어서 하는 완전히 분리된 좀비팩토리 만들면 좋을듯
     switch (randomValue)
     {
-    case 1:
-        return make_unique<NormalZombie>(playerLevel);
-    case 2:
-        return make_unique<VariantZombie>(playerLevel);
-    case 3:
-        return make_unique<HalfZombie>(playerLevel);
-    default:
-        return nullptr;
+        case 1:
+            return make_unique<NormalZombie>(playerLevel);
+        case 2:
+            return make_unique<VariantZombie>(playerLevel);
+        case 3:
+            return make_unique<HalfZombie>(playerLevel);
+        default:
+            return nullptr;
     }
 }
