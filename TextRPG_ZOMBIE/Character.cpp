@@ -89,6 +89,11 @@ void Character::levelUp()
 
 // 피격 오버라이딩
 void Character::onHit(int inputAttackPower) { 
+    if (useShield(inputAttackPower)) // "일회용 방패" 사용 여부
+    {
+        return;
+    }
+    
     Actor::onHit(inputAttackPower);
     
     if (Condition == "건강") {
@@ -113,4 +118,27 @@ void Character::Infect()
         Condition = "감염";
         cout << Name << "이(가) 감염되었습니다. (피격 시 최대 체력 5 퍼센트 피해를 더 받습니다.)" << endl;
     }
+}
+
+// 공격 오버라이딩
+int Character::Attack()
+{
+
+    return AttackPower;
+}
+
+// 일회용 방패 아이템
+bool Character::useShield(int inputAttackPower)
+{
+    if (HP <= inputAttackPower && Inventory.find("일회용 방패") != Inventory.end() && Inventory["일회용 방패"] > 0)
+    {
+        Inventory["일회용 방패"]--;
+        if (Inventory["일회용 방패"] == 0)
+        {
+            Inventory.erase("일회용 방패");
+        }
+        cout << Name << "이(가) 일회용 방패를 사용하여 피해를 방어했습니다!" << endl;
+        return true;
+    }
+    return false;
 }

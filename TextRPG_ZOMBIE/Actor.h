@@ -18,7 +18,7 @@ public:
 	Actor();//Default constructor
 	Actor(string inputName, int inputAttackPower, int inputMaxHP);
 
-	int Attack();	
+	virtual int Attack();	
 	virtual void onHit(int inputAttackPower);
 	bool isDead();
 	void printStatus();

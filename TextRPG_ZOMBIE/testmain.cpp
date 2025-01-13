@@ -37,10 +37,10 @@ int main() {
         {
             while (1)
             {
-                cout << "1. 모르핀, 2. 아드레날린, 3. 뒤로 : ";
+                cout << "1. 모르핀, 2. 일회용 방패, 3. 뒤로 : ";
                 cin >> choice;
                 if (choice == 1) player.addItem("모르핀", 1);
-                else if (choice == 2) player.addItem("아드레날린", 1);
+                else if (choice == 2) player.addItem("일회용 방패", 1);
                 else if (choice == 3) break;
                 else cout << "재입력 하쇼";
                 
@@ -49,7 +49,7 @@ int main() {
         }
         else if (choice == 3)
         {
-            player.onHit(5);
+            player.onHit(20);
             player.printStatus();
         }
         else if (choice == 4)

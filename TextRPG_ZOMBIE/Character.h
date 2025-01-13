@@ -38,6 +38,12 @@ public:
     // 피격 오버라이딩
     void onHit(int inputAttackPower) override;
 
+    // 공격 오버라이딩
+    int Attack();
+
+    // 일회용 방패 아이템
+    bool useShield(int inputAttackPower);
+
 private:
     // 레벨업 처리
     void levelUp();
