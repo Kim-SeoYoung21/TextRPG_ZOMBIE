@@ -97,9 +97,10 @@ void Character::onHit(int inputAttackPower) {
     }
     else
     {
+        int dot = MaxHP * 0.05;
         cout << Name << "이(가) " << inputAttackPower << " 피해를 입었습니다. (" << HP << "/" << MaxHP << ")" << endl;
-        Actor::onHit(5);
-        cout << Name << "이(가) 감염되어 5의 데미지를 추가적으로 받았습니다. (" << HP << "/" << MaxHP << ")" << endl;
+        Actor::onHit(dot);
+        cout << Name << "이(가) 감염되어 " << dot << " 데미지를 추가적으로 받았습니다. (" << HP << " / " << MaxHP << ")" << endl;
     }
 }
 
@@ -107,9 +108,9 @@ void Character::onHit(int inputAttackPower) {
 void Character::Infect()
 {
     int chance = rand() % 100;
-    if (chance < 10) // 20% 확률로 감염
+    if (chance < 10) // 10% 확률로 감염
     {
         Condition = "감염";
-        cout << Name << "이(가) 감염되었습니다. 백신을 사용해 주세요." << endl;
+        cout << Name << "이(가) 감염되었습니다. (피격 시 최대 체력 5 퍼센트 피해를 더 받습니다.)" << endl;
     }
 }
