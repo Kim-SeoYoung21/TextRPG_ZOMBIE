@@ -15,10 +15,17 @@ Character::Character(string inputName, string inputJob, int inputAttackPower, in
 }
 
 // Add item
-void Character::addItem(const string& item)
+void Character::addItem(const string& itemName, int amount)
 {
-    OwnedItems.push_back(item);
-    cout << "아이템 추가: " << item << endl;
+    if (Inventory.find(itemName) != Inventory.end())
+    {
+        Inventory[itemName] += amount;
+    }
+    else
+    {
+        Inventory[itemName] = amount;
+    }
+    cout << "아이템 추가 : " << itemName << "을(를) " << amount << "개 추가했습니다." << endl;
 }
 
 // Gain Exp
@@ -41,9 +48,9 @@ void Character::printStatus()
     cout << "EXP: " << Exp << "/" << MaxExp << endl;
     cout << "돈 : " << Money << endl;
     cout << "보유 아이템: ";
-    for (const auto& item : OwnedItems)
+    for (const auto& item : Inventory)
     {
-        cout << item << " ";
+        cout << item.first << "(" << item.second << ") ";
     }
     cout << endl;
 }

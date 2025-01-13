@@ -1,16 +1,17 @@
 ﻿#pragma once
 #include "Actor.h"
 #include <vector>
+#include <map>
 
 class Character : public Actor {
 private:
-    vector<string> OwnedItems;
     string Job;
     int Exp;
     int MaxExp;
     int Level;
     int Money;
     string Condition;
+    map<string, int> Inventory;
 
 public:
     // 기본 생성자
@@ -20,7 +21,7 @@ public:
     Character(string inputName, string inputJob, int inputAttackPower, int inputMaxHP);
 
     // 아이템 추가
-    void addItem(const string& item);
+    void addItem(const string& itemName, int amount);
 
     // 경험치 획득
     void gainExp(int amount);

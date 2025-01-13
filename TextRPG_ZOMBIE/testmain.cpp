@@ -26,7 +26,7 @@ int main() {
     player.printStatus();
 
     while (1) { // function test
-        cout << "1. 경험치 획득, 2. 아이템 획득, 3. 피격 테스트(감염 10퍼): ";
+        cout << "1. 경험치 획득, 2. 아이템 획득, 3. 피격 테스트(감염 10퍼), 4. 골드 추가: ";
         cin >> choice;
         if (choice == 1)
         {
@@ -35,12 +35,25 @@ int main() {
         }
         else if (choice == 2)
         {
-            player.addItem("테스트1");
+            while (1)
+            {
+                cout << "1. 모르핀, 2. 아드레날린, 3. 뒤로 : ";
+                cin >> choice;
+                if (choice == 1) player.addItem("모르핀", 1);
+                else if (choice == 2) player.addItem("아드레날린", 1);
+                else if (choice == 3) break;
+                else cout << "재입력 하쇼";
+                
+            }
             player.printStatus();
         }
         else if (choice == 3)
         {
             player.onHit(5);
+            player.printStatus();
+        }
+        else if (choice == 4)
+        {
             player.printStatus();
         }
         else cout << "재입력하쇼";
