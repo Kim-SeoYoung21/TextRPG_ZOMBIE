@@ -30,7 +30,19 @@ int HalfZombie::GetAttackPower()
     return AttackPower;
 }
 
-// TODO : 데미지는 뭘 해야할지? 문구 출력?
-void HalfZombie::takeDamage()
+void HalfZombie::onHit(int inputAttackPower)
 {
+    Actor::onHit(inputAttackPower);
+
+    cout << Name << "는 " << inputAttackPower << "의 데미지를 입었다..!" << endl;
+
+    if (isDead())
+        cout << Name << "는 마지막 일격으로 사망했습니다 !!!" << endl;
+}
+
+void HalfZombie::printStatus()
+{
+    cout << "Name : " << Name << endl;
+    cout << "Attack power : " << AttackPower << endl;
+    cout << "Current health point : " << HP << endl;
 }

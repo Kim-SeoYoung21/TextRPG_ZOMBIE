@@ -30,6 +30,19 @@ int VariantZombie::GetAttackPower()
     return AttackPower;
 }
 
-void VariantZombie::takeDamage()
+void VariantZombie::onHit(int inputAttackPower)
 {
+    Actor::onHit(inputAttackPower);
+
+    cout << Name << "는 " << inputAttackPower << "의 데미지를 입었다..!" << endl;
+
+    if (isDead())
+        cout << Name << "는 마지막 일격으로 사망했습니다 !!!" << endl;
+}
+
+void VariantZombie::printStatus()
+{
+    cout << "Name : " << Name << endl;
+    cout << "Attack power : " << AttackPower << endl;
+    cout << "Current health point : " << HP << endl;
 }
