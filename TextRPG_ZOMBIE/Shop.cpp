@@ -1,4 +1,4 @@
-#include "Shop.h"
+ï»¿#include "Shop.h"
 // #include "Character.h"
 // #include "Itme.h"
 
@@ -9,9 +9,9 @@ Shop::Shop()
 {
 	int shop_idx;
 	cout << "\n============================ " << endl;
-	cout << "           »ó   Á¡           " << endl;
-	cout << "1.±¸¸Å   2. ÆÇ¸Å   3. º¸À¯¹°Ç°" << endl;
-	cout << "¾î¶² ¼­ºñ½º¸¦ ÀÌ¿ëÇÏ½Ã°Ú½À´Ï°¡? : ";
+	cout << "           ìƒ   ì            " << endl;
+	cout << "1.êµ¬ë§¤   2. íŒë§¤   3. ë³´ìœ ë¬¼í’ˆ" << endl;
+	cout << "ì–´ë–¤ ì„œë¹„ìŠ¤ë¥¼ ì´ìš©í•˜ì‹œê² ìŠµë‹ˆê°€? : ";
 	cin >> shop_idx;
 }
 
@@ -31,6 +31,6 @@ void Shop::sellItem(int index)
 
 Shop::~Shop()
 {
-	cout << "   »óÁ¡ÀÌ Á¾·áµÇ¾ú½À´Ï´Ù. " << endl;
+	cout << "   ìƒì ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤. " << endl;
 	cout << "============================ " << endl;
 }
