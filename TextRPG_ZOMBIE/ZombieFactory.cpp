@@ -8,7 +8,7 @@
 
 using namespace std;
 
-ZombieFactory::ZombieFactory(int level) : PlayerLevel(level)
+ZombieFactory::ZombieFactory()
 {
 }
 
@@ -16,8 +16,8 @@ unique_ptr<Actor> ZombieFactory::CreateZombie(int playerLevel)
 {
     int randomValue = RandomUtil::GetRandomInt(1, 3);
 
-    // Player 레벨이 10 이상일 때
-    if (PlayerLevel >= 10)
+    // Player 레벨이 10 이상일 때 보스 좀비 생성
+    if (playerLevel >= 10)
         return make_unique<BossZombie>(playerLevel);
 
     // 랜덤으로 나온 값을 바탕으로 좀비 생성
@@ -34,3 +34,4 @@ unique_ptr<Actor> ZombieFactory::CreateZombie(int playerLevel)
             return nullptr;
     }
 }
+
