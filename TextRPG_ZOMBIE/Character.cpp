@@ -5,12 +5,12 @@
 using namespace std;
 
 Character::Character()
-    : Actor(), Job("무직"), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0)
+    : Actor(), Job("무직"), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
 {
 }
 
 Character::Character(string inputName, string inputJob, int inputAttackPower, int inputMaxHP)
-    : Actor(inputName, inputAttackPower, inputMaxHP), Job(inputJob), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0)
+    : Actor(inputName, inputAttackPower, inputMaxHP), Job(inputJob), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
 {
 }
 
@@ -123,11 +123,20 @@ void Character::Infect()
 // 공격 오버라이딩
 int Character::Attack()
 {
+    // 목검 효과 적용
+    useWoodenSword(); // 목검 사용 조건 및 효과 처리를 위임
+
+    if (boostedTurns > 0)
+    {
+        boostedTurns--; // 턴 소모
+        cout << Name << "이(가) \"목검\" 효과로 공격력이 2배로 증가했습니다!" << endl;
+        return AttackPower * 2;
+    }
 
     return AttackPower;
 }
 
-// 일회용 방패 아이템
+// 일회용 방패 아이템 : 피해량이 남은 체력보다 크고 && 인벤토리에 "일회용 방패"가 있으면 피해 무효
 bool Character::useShield(int inputAttackPower)
 {
     if (HP <= inputAttackPower && Inventory.find("일회용 방패") != Inventory.end() && Inventory["일회용 방패"] > 0)
@@ -141,4 +150,24 @@ bool Character::useShield(int inputAttackPower)
         return true;
     }
     return false;
+}
+
+// 목검 아이템 : 3턴 동안 피해량 2배
+void Character::useWoodenSword()
+{
+    // 목검 효과가 없고, 인벤토리에 목검이 있는 경우
+    if (boostedTurns == 0)
+    {
+        auto it = Inventory.find("목검");
+        if (it != Inventory.end() && it->second > 0)
+        {
+            boostedTurns = 3; // 3턴 동안 효과 유지
+            it->second--;     // 목검 소모
+            if (it->second == 0)
+            {
+                Inventory.erase(it); // 남은 개수가 0이면 제거
+            }
+            cout << Name << "이(가) 목검을 사용했습니다! 3턴 동안 공격력이 2배로 증가합니다." << endl;
+        }
+    }
 }

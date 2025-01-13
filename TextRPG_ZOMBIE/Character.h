@@ -11,6 +11,7 @@ private:
     int Level;
     int Money;
     string Condition;
+    int boostedTurns;
     map<string, int> Inventory;
 
 public:
@@ -39,11 +40,11 @@ public:
     void onHit(int inputAttackPower) override;
 
     // 공격 오버라이딩
-    int Attack();
+    int Attack() override;
 
-    // 일회용 방패 아이템
-    bool useShield(int inputAttackPower);
-
+    // 아이템
+    bool useShield(int inputAttackPower); // 일회용 방패 아이템
+    void useWoodenSword(); // 목검 아이템
 private:
     // 레벨업 처리
     void levelUp();
