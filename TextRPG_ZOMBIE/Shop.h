@@ -2,8 +2,8 @@
 
 class Shop {
 public:
-	Shop() {}
-	~Shop() {}
+	Shop();
+	~Shop();
 
 	void displayItems();
 	void buyItem(int index);
