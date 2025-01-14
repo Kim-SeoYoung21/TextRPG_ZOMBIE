@@ -28,18 +28,17 @@ void Shop::displayItems(/*Character& character*/)
         << setw(15) << "현재 보유"
         << setw(15) << "최대 보유" << endl;
     cout << "------------------------------------------------------------" << endl;
-
-    for (int i = 0; i < Character.Inventory; ++i) {
-        //All_Item* item = character.OwnedItems[i]; // 캐릭터의 아이템 접근
-        if (item) { 
-            cout << setw(15) << item->getName()
-                << setw(10) << item->getPrice()
-                << setw(10) << item->getPrice() * 0.6
-                << setw(15) << item->getCurrentStack()
-                << setw(15) << item->getMaxStack() << endl;
-            
-        }
+    /*
+    for (int i = 0; i < inventory.; ++i) {
+        //All_Item* item = character.OwnedItems[i]; // 캐릭터의 아이템 접근 
+        cout << setw(15) << item->getName()
+            << setw(10) << item->getPrice()
+            << setw(10) << item->getPrice() * 0.6
+            << setw(15) << item->getCurrentStack()
+            << setw(15) << item->getMaxStack() << endl;
+        
     }
+    */
     cout << "------------------------------------------------------------" << endl;
 }
 
@@ -55,11 +54,5 @@ void Shop::sellItem()
 Shop::~Shop()
 {
 	cout << "   상점이 종료되었습니다. " << endl;
-	cout << "============================ " << endl;
-}
-
-void main()
-{
-    Shop s;
-    s.
+    cout << "------------------------------------------------------------" << endl;
 }
