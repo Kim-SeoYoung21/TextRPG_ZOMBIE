@@ -13,8 +13,7 @@ private:
 	int HP;//
 	int MaxHP;//
 public:
-	//��� �Լ�
-	Actor();//������
+	Actor();
 	int Attack()
 	{
 		return AttackPower;
@@ -29,8 +28,8 @@ public:
 	}
 	void printStatus()
 	{
-		cout << "�̸� : " << Name << endl;
-		cout << "���ݷ� : " << AttackPower << endl;
-		cout << "���� ü�� : " << HP << endl;
+		cout << "이름 : " << Name << endl;
+		cout << "공격력 : " << AttackPower << endl;
+		cout << "체력 : " << HP << endl;
 	}
 }; #pragma once
