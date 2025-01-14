@@ -12,7 +12,7 @@ ZombieFactory::ZombieFactory()
 {
 }
 
-unique_ptr<Actor> ZombieFactory::CreateZombie(int playerLevel)
+unique_ptr<Actor> ZombieFactory::CreateZombie(const int playerLevel)
 {
     int randomValue = RandomUtil::GetRandomInt(1, 3);
 

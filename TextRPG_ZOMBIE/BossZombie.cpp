@@ -3,7 +3,7 @@
 
 using namespace std;
 
-BossZombie::BossZombie(int playerLevel) : Actor("", 0, 0)
+BossZombie::BossZombie(const int playerLevel) : Actor("", 0, 0)
 {
 	Name = "BossZombie";
 	MaxHP = RandomUtil::GetRandomInt(playerLevel * 20 * 1.5, playerLevel * 30 * 1.5);
@@ -11,17 +11,17 @@ BossZombie::BossZombie(int playerLevel) : Actor("", 0, 0)
 	HP = MaxHP;
 }
 
-string BossZombie::GetName()
+string BossZombie::GetName() const
 {
 	return Name;
 }
 
-int BossZombie::GetMaxHP()
+int BossZombie::GetMaxHP() const
 {
 	return MaxHP;
 }
 
-int BossZombie::Attack()
+int BossZombie::Attack() const
 {
 	return AttackPower;
 }
@@ -36,7 +36,7 @@ void BossZombie::onHit(int inputAttackPower)
 		cout << "축하합니다! 보스를 클리어하고 게임의 엔딩을 보셨습니다!" << endl;
 }
 
-void BossZombie::printStatus()
+void BossZombie::printStatus() const
 {
 	cout << "Name : " << Name << endl;
 	cout << "Attack power : " << AttackPower << endl;

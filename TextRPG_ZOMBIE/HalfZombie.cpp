@@ -3,7 +3,7 @@
 
 using namespace std;
 
-HalfZombie::HalfZombie(int playerLevel) : Actor("", 0, 0)
+HalfZombie::HalfZombie(const int playerLevel) : Actor("", 0, 0)
 {
     Name = "HalfZombie";
     MaxHP = RandomUtil::GetRandomInt(playerLevel * 20, playerLevel * 30);
@@ -11,17 +11,17 @@ HalfZombie::HalfZombie(int playerLevel) : Actor("", 0, 0)
     HP = MaxHP;
 }
 
-string HalfZombie::GetName()
+string HalfZombie::GetName() const
 {
     return Name;
 }
 
-int HalfZombie::GetMaxHP()
+int HalfZombie::GetMaxHP() const
 {
     return MaxHP;
 }
 
-int HalfZombie::Attack()
+int HalfZombie::Attack() const
 {
     return AttackPower;
 }
@@ -36,7 +36,7 @@ void HalfZombie::onHit(int inputAttackPower)
         cout << Name << "는 마지막 일격으로 사망했습니다 !!!" << endl;
 }
 
-void HalfZombie::printStatus()
+void HalfZombie::printStatus() const
 {
     cout << "Name : " << Name << endl;
     cout << "Attack power : " << AttackPower << endl;

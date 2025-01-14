@@ -7,11 +7,11 @@
 class HalfZombie : public Actor
 {
 public:
-    HalfZombie(int playerLevel);
+    HalfZombie(const int playerLevel);
 
-    string GetName();
-    int GetMaxHP();
-    int Attack();
+    string GetName() const;
+    int GetMaxHP() const;
+    int Attack() const;
     void onHit(int inputAttackPower) override;
-    void printStatus();
+    void printStatus() const;
 };

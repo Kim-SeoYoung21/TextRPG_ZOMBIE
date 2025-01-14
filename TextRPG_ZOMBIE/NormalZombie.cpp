@@ -3,7 +3,7 @@
 
 using namespace std;
 
-NormalZombie::NormalZombie(int playerLevel) : Actor("", 0, 0)
+NormalZombie::NormalZombie(const int playerLevel) : Actor("", 0, 0)
 {
     Name = "NormalZombie";
     MaxHP = RandomUtil::GetRandomInt(playerLevel * 20, playerLevel * 30);;
@@ -11,17 +11,18 @@ NormalZombie::NormalZombie(int playerLevel) : Actor("", 0, 0)
     HP = MaxHP;
 }
 
-string NormalZombie::GetName()
+
+string NormalZombie::GetName() const
 {
     return Name;
 }
 
-int NormalZombie::GetMaxHP()
+int NormalZombie::GetMaxHP() const
 {
     return MaxHP;
 }
 
-int NormalZombie::Attack()
+int NormalZombie::Attack() const
 {
     return AttackPower;
 }
@@ -36,7 +37,7 @@ void NormalZombie::onHit(int inputAttackPower)
         cout << Name << "는 마지막 일격으로 사망했습니다 !!!" << endl;
 }
 
-void NormalZombie::printStatus()
+void NormalZombie::printStatus() const
 {
     cout << "Name : " << Name << endl;
     cout << "Attack power : " << AttackPower << endl;

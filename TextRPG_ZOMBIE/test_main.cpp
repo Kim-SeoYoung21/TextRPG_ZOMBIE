@@ -45,7 +45,6 @@ int main()
     // 데미지 시뮬레이션
     cout << "\n===== 데미지 시뮬레이션 =====" << endl;
     cout << "\n[" << GetZombieName(zombie) << "] 전투 시작!" << endl;
-    int hitCount = 0;
     
     // 좀비 사망까지
     while (!zombie->isDead()) {
@@ -54,7 +53,6 @@ int main()
         
         // 각 hit 사이에 딜레이
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
-        hitCount++;
     }
 
     // 최종 상태

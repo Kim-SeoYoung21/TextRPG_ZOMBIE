@@ -3,7 +3,7 @@
 
 using namespace std;
 
-VariantZombie::VariantZombie(int playerLevel) : Actor("", 0, 0)
+VariantZombie::VariantZombie(const int playerLevel) : Actor("", 0, 0)
 {
     Name = "VariantZombie";
     MaxHP = RandomUtil::GetRandomInt(playerLevel * 20, playerLevel * 30);
@@ -11,17 +11,17 @@ VariantZombie::VariantZombie(int playerLevel) : Actor("", 0, 0)
     HP = MaxHP;
 }
 
-string VariantZombie::GetName()
+string VariantZombie::GetName() const
 {
     return Name;
 }
 
-int VariantZombie::GetMaxHP()
+int VariantZombie::GetMaxHP() const
 {
     return MaxHP;
 }
 
-int VariantZombie::Attack()
+int VariantZombie::Attack() const
 {
     return AttackPower;
 }
@@ -36,7 +36,7 @@ void VariantZombie::onHit(int inputAttackPower)
         cout << Name << "는 마지막 일격으로 사망했습니다 !!!" << endl;
 }
 
-void VariantZombie::printStatus()
+void VariantZombie::printStatus() const
 {
     cout << "Name : " << Name << endl;
     cout << "Attack power : " << AttackPower << endl;

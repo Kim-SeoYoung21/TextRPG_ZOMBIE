@@ -6,5 +6,5 @@ class ZombieFactory
 {
 public:
     ZombieFactory();
-    std::unique_ptr<Actor> CreateZombie(int playerLevel);
+    std::unique_ptr<Actor> CreateZombie(const int playerLevel);
 };

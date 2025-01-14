@@ -7,11 +7,11 @@
 class NormalZombie : public Actor
 {
 public:
-    NormalZombie(int playerLevel);
+    NormalZombie(const int playerLevel);
 
-    std::string GetName();
-    int GetMaxHP();
-    int Attack();
+    std::string GetName() const;
+    int GetMaxHP() const;
+    int Attack() const;
     void onHit(int inputAttackPower) override;
-    void printStatus();
+    void printStatus() const;
 };
