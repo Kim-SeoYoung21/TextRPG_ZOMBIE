@@ -34,6 +34,7 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="RandomUtil.h">
+    <ClInclude Include="Character.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -60,6 +61,10 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="RandomUtil.cpp">
+    <ClCompile Include="testmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
