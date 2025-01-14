@@ -7,30 +7,19 @@ using namespace std;
 
 class Actor
 {
-private:
-	string Name;//
-	int AttackPower;//
-	int HP;//
-	int MaxHP;//
+//private:
+
 public:
-	//��� �Լ�
-	Actor();//������
-	int Attack()
-	{
-		return AttackPower;
-	}
-	void onHit(int inputAttackPower)
-	{
-		HP -= inputAttackPower;
-	}
-	bool isDead()
-	{
-		return hp > 0 ? false : true;
-	}
-	void printStatus()
-	{
-		cout << "�̸� : " << Name << endl;
-		cout << "���ݷ� : " << AttackPower << endl;
-		cout << "���� ü�� : " << HP << endl;
-	}
-}; #pragma once
+	string Name;//Name of Actor object
+	int AttackPower;//Attack power of Actor object
+	int HP;//Current health point of Actor object
+	int MaxHP;//Maximun health point of Actor object
+
+	Actor();//Default constructor
+	Actor(string inputName, int inputAttackPower, int inputMaxHP);
+
+	virtual int Attack();	
+	virtual void onHit(int inputAttackPower);
+	bool isDead();
+	void printStatus();
+}; 
