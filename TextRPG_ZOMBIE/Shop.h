@@ -5,9 +5,9 @@ public:
 	Shop();
 	~Shop();
 
-	void displayItems();
-	void buyItem(int index);
-	void sellItem(int index);
+	void displayItems(/*Character& character*/);
+	void buyItem();
+	void sellItem();
 
 
 };
