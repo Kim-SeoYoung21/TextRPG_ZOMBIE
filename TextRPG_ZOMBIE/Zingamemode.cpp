@@ -67,11 +67,11 @@ public:
 		int goldReward = playerLever1 * 10;
 	}
 }
+
 class Shop {
 	public:
 		void displayItems() {
 			cout << "상점에 오신 것을 환영합니다." << endl;
-
 		}
 	};
 
@@ -110,7 +110,7 @@ class Shop {
 		}
 		else if (choice == 2) {
 			cout << "상점에 오신 것을 환영합니다." << endl;
-		}
+		} 
 		else if (choice == 3) {
 			player.printStatus();
 		}
