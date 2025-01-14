@@ -8,7 +8,7 @@ using namespace std;
 class Actor
 {
 //private:
-	ddd
+	
 public:
 	string Name;//Name of Actor object
 	int AttackPower;//Attack power of Actor object
