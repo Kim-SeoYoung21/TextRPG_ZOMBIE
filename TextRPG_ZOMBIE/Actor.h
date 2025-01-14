@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -32,4 +33,4 @@ public:
 		cout << "공격력 : " << AttackPower << endl;
 		cout << "체력 : " << HP << endl;
 	}
-}; #pragma once
+};
